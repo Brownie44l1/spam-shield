@@ -21,7 +21,9 @@ app.add_middleware(
 
 # Static files & templates
 BASE_DIR = os.path.dirname(__file__)
-app.mount("/static", StaticFiles(directory=os.path.join(BASE_DIR, "app/static")), name="static")
+static_dir = os.path.join(BASE_DIR, "app/static")
+if os.path.isdir(static_dir):
+    app.mount("/static", StaticFiles(directory=static_dir), name="static")
 templates = Jinja2Templates(directory=os.path.join(BASE_DIR, "app/templates"))
 
 # Routes
