@@ -31,6 +31,7 @@ def predict_email(request: EmailRequest):
     return PredictionResponse(**result)
 
 
+@router.head("/health")
 @router.get("/health")
 def health():
     return {"status": "ok", "model": "loaded"}

@@ -30,6 +30,14 @@ templates = Jinja2Templates(directory=os.path.join(BASE_DIR, "app/templates"))
 app.include_router(predict_router, prefix="/api")
 
 
+@app.get("/ping")
+def ping():
+    return {"status": "ok"}
+
+@app.head("/ping")
+def ping_head():
+    return {}
+
 @app.get("/")
 def index(request: Request):
     return templates.TemplateResponse("index.html", {"request": request})
