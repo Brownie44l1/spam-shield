@@ -1,4 +1,4 @@
-# 🛡️ SpamShield
+# SpamShield
 
 A machine learning-powered spam email detection system built with FastAPI, scikit-learn, and Tailwind CSS.
 
