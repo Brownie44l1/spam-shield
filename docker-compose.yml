@@ -1,0 +1,12 @@
+services:
+  spamshield:
+    build: .
+    container_name: spamshield
+    ports:
+      - "7000:7000"
+    volumes:
+      - ./data:/app/data          # persist dataset
+      - ./app/model:/app/app/model  # persist trained model
+    restart: unless-stopped
+    environment:
+      - PYTHONUNBUFFERED=1
